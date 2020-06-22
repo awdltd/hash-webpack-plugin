@@ -1,6 +1,6 @@
 {
-  "name": "hash-webpack-plugin",
-  "version": "0.0.5",
+  "name": "@awdltd/hash-webpack-plugin",
+  "version": "0.0.1",
   "description": "Hash manifest file writer plugin for Webpack.",
   "main": "index.js",
   "scripts": {
@@ -8,22 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xpepermint/hash-webpack-plugin"
+    "url": "https://github.com/awdltd/hash-webpack-plugin"
   },
   "keywords": [
     "webpack",
     "hash",
     "manifest",
     "fingerprint",
-    "stats"
+    "stats",
+    "php"
   ],
   "author": "Xpepermint",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xpepermint/hash-webpack-plugin/issues"
+    "url": "https://github.com/awdltd/hash-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/xpepermint/hash-webpack-plugin",
+  "homepage": "https://github.com/awdltd/hash-webpack-plugin",
   "dependencies": {
     "mkdirp": "^0.5.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@awdltd"
   }
 }
