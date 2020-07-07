@@ -1,4 +1,4 @@
-const replaceContent = require('./replace.js');
+const fileHashReplace = require('./replace.js');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
@@ -20,9 +20,11 @@ module.exports = function(options){
           let hash = stats.hash.substring(0, options.hashLength);
 
           // Replace content within file
-          replaceContent(fileNameWithPath, hash, 'JS');
+          fileHashReplace(fileNameWithPath, hash, 'JS');
         });
       }.bind(this)
     );
   };
 };
+
+module.exports.fileHashReplace = fileHashReplace;

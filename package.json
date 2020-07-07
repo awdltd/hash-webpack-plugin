@@ -1,6 +1,6 @@
 {
-  "name": "@awdltd/hash-webpack-plugin",
-  "version": "0.0.1",
+  "name": "hash-plugin",
+  "version": "1.1.0",
   "description": "Hash manifest file writer plugin for Webpack.",
   "main": "index.js",
   "scripts": {

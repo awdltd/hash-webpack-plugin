@@ -13,17 +13,34 @@ npm install --save-dev @awdltd/hash-webpack-plugin
 ## Example
 
 ```js
-...
-var HashPlugin = require('hash-webpack-plugin');
+const FileHashSave = require('hash-webpack-plugin');
 
+// Webpack.config
 module.exports = {
   ...
   plugins: [
-    new HashPlugin({
+    new FileHashSave({
       path: './dist/js/',
       fileName: 'hash.php',
       assetType: 'JS'
     })
   ]
 };
+```
+
+```js
+const {fileHashReplace} = require('hash-webpack-plugin');
+
+// Generate hash (or use Gulp plugin)
+let hash = Math.random().toString(36).substring(2, 7);
+
+// Gulp task
+gulp
+  .src(`${devUrl}style.scss`)
+  .pipe(
+    ...
+  )
+  .on('end', function(){
+    fileHashReplace('dist/css/hash.php', hash, 'CSS');
+  };
 ```
