@@ -1,13 +1,13 @@
-# hash-[webpack](http://webpack.github.io)-plugin
+# Hash plugin
 
-> Hash manifest file writer plugin for Webpack.
+> PHP hash manifest file writer plugin
 
-Do you need to integrate Webpack with your [ExpressJS](http://expressjs.com/) app? Check the [express-hash-webpack](https://github.com/xpepermint/express-hash-webpack) plugin.
+Quickly generated PHP hash variables for updated CSS, JS and more. Forked from [xpepermint](https://github.com/xpepermint/hash-webpack-plugin).
 
 ## Setup
 
 ```js
-npm install --save-dev hash-webpack-plugin
+npm install --save-dev @awdltd/hash-webpack-plugin
 ```
 
 ## Example
@@ -19,7 +19,11 @@ var HashPlugin = require('hash-webpack-plugin');
 module.exports = {
   ...
   plugins: [
-    new HashPlugin({ path: './build', fileName: 'hash.txt' })
+    new HashPlugin({
+      path: './dist/js/',
+      fileName: 'hash.php',
+      assetType: 'JS'
+    })
   ]
 };
 ```

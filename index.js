@@ -1,26 +1,28 @@
-var fs = require('fs');
-var path = require('path');
-var mkdirp = require('mkdirp');
+const replaceContent = require('./replace.js');
+const path = require('path');
+const mkdirp = require('mkdirp');
 
-module.exports = function(options) {
-  return function() {
+module.exports = function(options){
+  return function(){
+    let outputPath = options.path || './';
+    let fileName = options.fileName || 'hash.php';
 
-    var outputPath = options.path || './';
-    var fileName = options.fileName || 'hash.php';
+    mkdirp(
+      outputPath,
+      function(err){
+        if (err) return console.log('Error creating folder:', err);
 
-    mkdirp(outputPath, function(err) {
-      if (err) return console.log('Error creating folder:', err);
+        // Get filename
+        const fileNameWithPath = path.join(outputPath, fileName);
 
-      this.plugin('done', function(stats) {
-        fs.writeFileSync(
-          path.join(outputPath, fileName),
-          `<?php
+        // Write to file
+        this.plugin('done', function(stats){
+          let hash = stats.hash.substring(0, options.hashLength);
 
-const HASH = '${stats.hash}';
-
-// EOF`
-        );
-      });
-    }.bind(this));
+          // Replace content within file
+          replaceContent(fileNameWithPath, hash, 'JS');
+        });
+      }.bind(this)
+    );
   };
 };
