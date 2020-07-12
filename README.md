@@ -13,7 +13,7 @@ npm install --save-dev @awdltd/hash-plugin
 ## Example
 
 ```js
-const FileHashSave = require('hash-plugin');
+const FileHashSave = require('@awdltd/hash-plugin');
 
 // Webpack.config
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
 ```
 
 ```js
-const {fileHashReplace} = require('hash-webpack-plugin');
+const {fileHashReplace} = require('@awdltd/hash-plugin');
 
 // Generate hash (or use Gulp plugin)
 let hash = Math.random().toString(36).substring(2, 7);
