@@ -7,13 +7,13 @@ Quickly generated PHP hash variables for updated CSS, JS and more. Forked from [
 ## Setup
 
 ```js
-npm install --save-dev @awdltd/hash-webpack-plugin
+npm install --save-dev @awdltd/hash-plugin
 ```
 
 ## Example
 
 ```js
-const FileHashSave = require('hash-webpack-plugin');
+const FileHashSave = require('hash-plugin');
 
 // Webpack.config
 module.exports = {
@@ -36,7 +36,7 @@ let hash = Math.random().toString(36).substring(2, 7);
 
 // Gulp task
 gulp
-  .src(`${devUrl}style.scss`)
+  .src(`./dist/style.scss`)
   .pipe(
     ...
   )
